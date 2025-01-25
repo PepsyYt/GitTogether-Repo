@@ -26,7 +26,12 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900">Build Your Professional Resume</h2>
+          <p className="mt-2 text-lg text-gray-600">Create a standout resume that gets you noticed by top employers</p>
+        </div>
+
         <div className="mb-6">
           <div className="sm:hidden">
             <select
@@ -34,34 +39,36 @@ function App() {
               value={activeTab}
               onChange={(e) => setActiveTab(e.target.value as 'edit' | 'preview')}
             >
-              <option value="edit">Edit</option>
-              <option value="preview">Preview</option>
+              <option value="edit">Edit Resume</option>
+              <option value="preview">Preview Resume</option>
             </select>
           </div>
           
           <div className="hidden sm:block">
-            <nav className="flex space-x-4" aria-label="Tabs">
-              <button
-                onClick={() => setActiveTab('edit')}
-                className={`${
-                  activeTab === 'edit'
-                    ? 'bg-primary-100 text-primary-700'
-                    : 'text-gray-500 hover:text-gray-700'
-                } px-3 py-2 font-medium text-sm rounded-md`}
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => setActiveTab('preview')}
-                className={`${
-                  activeTab === 'preview'
-                    ? 'bg-primary-100 text-primary-700'
-                    : 'text-gray-500 hover:text-gray-700'
-                } px-3 py-2 font-medium text-sm rounded-md`}
-              >
-                Preview
-              </button>
-            </nav>
+            <div className="border-b border-gray-200">
+              <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+                <button
+                  onClick={() => setActiveTab('edit')}
+                  className={`${
+                    activeTab === 'edit'
+                      ? 'border-primary-500 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+                >
+                  Edit Resume
+                </button>
+                <button
+                  onClick={() => setActiveTab('preview')}
+                  className={`${
+                    activeTab === 'preview'
+                      ? 'border-primary-500 text-primary-600'
+                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                  } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+                >
+                  Preview Resume
+                </button>
+              </nav>
+            </div>
           </div>
         </div>
 
@@ -72,7 +79,17 @@ function App() {
             <ResumePreviewer data={resumeData} />
           )}
         </div>
-      </main>
+      </div>
+
+      <footer className="bg-gray-50 border-t border-gray-200 mt-16">
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-base text-gray-500">
+              © {new Date().getFullYear()} Smart Resume Builder. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
